@@ -201,11 +201,6 @@ $(document).ready(function(){
     title: {
         text: 'Estimated New HIV Infection (1990-2016)'
     },
-
-    subtitle: {
-         text:"IBBB"
-    },
-
     yAxis: {
         title: {
             text: 'New HIV Infection'
@@ -516,4 +511,117 @@ series: [{
     }]
 });
      });
+     $(".dropdown-menu").find(".male-migrants").on("click", function(){
+          $("html, body").animate({
+               scrollTop: $(".data-table").offset().top
+          },800);
+          $(".gender").children().addClass("active-color");
+          $(".age").children().removeClass("active-color");
+          $(".year").children().removeClass("active-color");
+          $("#chart-data-second").css("display","none");
+          $(".data-table").removeClass("chart-data-second");
+          Highcharts.chart('chart-data', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Intervention-Male Labour Migrants'
+    },
+    xAxis: {
+        categories: [
+            '070/071',
+            '071/072',
+            '072/073'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Number'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.0f}</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Condom Distributed',
+        data: [2991704,1340286,1578039]
+
+    }, {
+        name: 'HIV Tested And Counseled',
+        data: [42679,40623,103667]
+
+    }]
+});
+     });
+
+
+     $(".dropdown-menu").find(".female-workers").on("click", function(){
+          $("html, body").animate({
+               scrollTop: $(".data-table").offset().top
+          },800);
+          $(".gender").children().addClass("active-color");
+          $(".age").children().removeClass("active-color");
+          $(".year").children().removeClass("active-color");
+          $("#chart-data-second").css("display","none");
+          $(".data-table").removeClass("chart-data-second");
+          Highcharts.chart('chart-data', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Intervention-Female Sex Workers'
+    },
+    xAxis: {
+        categories: [
+            '070/071',
+            '071/072',
+            '072/073'
+        ],
+        crosshair: true
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Number'
+        }
+    },
+    tooltip: {
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+            '<td style="padding:0"><b>{point.y:.0f}</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+    },
+    plotOptions: {
+        column: {
+            pointPadding: 0.2,
+            borderWidth: 0
+        }
+    },
+    series: [{
+        name: 'Condom Distributed',
+        data: [3434421,4712296,4204696]
+
+    }, {
+        name: 'HIV Tested And Counseled',
+        data: [9970,10006,9765]
+
+    }]
+});
+     });
+
 });
