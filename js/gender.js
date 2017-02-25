@@ -1,102 +1,4 @@
 $(document).ready(function(){
-          $("#chart-data-second").css("display","none");
-          var data = [
-        {
-            "hc-key": "np-750",
-            "value": 0
-        },
-        {
-            "hc-key": "np-751",
-            "value": 1
-        },
-        {
-            "hc-key": "np-752",
-            "value": 2
-        },
-        {
-            "hc-key": "np-753",
-            "value": 3
-        },
-        {
-            "hc-key": "np-754",
-            "value": 4
-        },
-        {
-            "hc-key": "np-755",
-            "value": 5
-        },
-        {
-            "hc-key": "np-756",
-            "value": 6
-        },
-        {
-            "hc-key": "np-757",
-            "value": 7
-        },
-        {
-            "hc-key": "np-354",
-            "value": 8
-        },
-        {
-            "hc-key": "np-1278",
-            "value": 9
-        },
-        {
-            "hc-key": "np-746",
-            "value": 10
-        },
-        {
-            "hc-key": "np-747",
-            "value": 11
-        },
-        {
-            "hc-key": "np-748",
-            "value": 12
-        },
-        {
-            "hc-key": "np-749",
-            "value": 13
-        }
-    ];
-
-    // Initiate the chart
-    $('#chart-data').highcharts('Map', {
-
-        title : {
-            text : 'HIV '
-        },
-
-        subtitle : {
-            text : 'Source map: <a href="https://code.highcharts.com/mapdata/countries/np/np-all.js">Nepal</a>'
-        },
-
-        mapNavigation: {
-            enabled: true,
-            buttonOptions: {
-                verticalAlign: 'bottom'
-            }
-        },
-
-        colorAxis: {
-            min: 0
-        },
-
-        series : [{
-            data : data,
-            mapData: Highcharts.maps['countries/np/np-all'],
-            joinBy: 'hc-key',
-            name: 'Random data',
-            states: {
-                hover: {
-                    color: '#a4edba'
-                }
-            },
-            dataLabels: {
-                enabled: true,
-                format: '{point.name}'
-            }
-        }]
-    });
      	$(".dropdown-menu").find('.reported').on("click", function() {
                $("html, body").animate({
                     scrollTop: $(".data-table").offset().top
@@ -223,6 +125,126 @@ $(document).ready(function(){
         data: [8,32,71,196,400,768,1494,2882,4975,6845,7512,7448,7260,7179,6590,5445,4132,3887,3305,2650,2338,2157,1819,1560,2228,1480,2163]
     }]
      });
+});
+
+$(".dropdown-menu").find('.mode').on("click", function(){
+     $("html, body").animate({
+          scrollTop: $(".data-table").offset().top
+     },800);
+     $(".age").children().removeClass("active-color");
+     $(".year").children().addClass("active-color");
+     $("#chart-data-second").css("display","none");
+     $('.gender').children().removeClass("active-color");
+$("#chart-data").addClass("chart-data");
+Highcharts.chart('chart-data', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: ' Reported HIV Cases by Mode of Transmission in Nepal, 2010-2016 July '
+    },
+    xAxis: {
+        categories: ['2010' , '2011', '2012', '2013' ,'2014', '2015', '2016 (JanJuly)']
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Percentage'
+        }
+    },
+    tooltip: {
+        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/>',
+        shared: true
+    },
+    plotOptions: {
+        column: {
+            stacking: 'percent'
+        }
+    },
+    series: [{
+        name: 'Unidentified',
+        data: [0, 0, 0, 0,35,29,28]
+    }, {
+        name: 'Mother to child',
+        data: [8.5, 9.2, 10, 11,0,0,0]
+    }, {
+        name: 'Blood or blood products',
+        data: [0.5, 0.3, 1, 1,1,0.5,0]
+    }, {
+        name: 'Unsafe Injecting Behaviour',
+        data: [6, 3, 4, 3,2,2,1.5]
+    }
+    , {
+        name: 'Unsafe Sexual behaviour',
+        data: [85, 87, 85, 85,62,65,67]
+    }]
+});
+});
+
+$(".dropdown-menu").find('.test').on("click", function(){
+     $("html, body").animate({
+          scrollTop: $(".data-table").offset().top
+     },800);
+     $(".age").children().removeClass("active-color");
+     $(".year").children().addClass("active-color");
+     $("#chart-data-second").css("display","none");
+     $('.gender').children().removeClass("active-color");
+$("#chart-data").addClass("chart-data");
+Highcharts.chart('chart-data', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'HIV Testing and Yield Proportion Region Wise, 2015'
+    },
+    xAxis: {
+        categories: ['Far-Western', 'Mid-Western', 'Western', 'Central', 'Eastern']
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Total Tested'
+        },
+        stackLabels: {
+            enabled: true,
+            style: {
+                fontWeight: 'bold',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+            }
+        }
+    },
+    legend: {
+        align: 'right',
+        x: -30,
+        verticalAlign: 'top',
+        y: 25,
+        floating: true,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        borderColor: '#CCC',
+        borderWidth: 1,
+        shadow: false
+    },
+    tooltip: {
+        headerFormat: '<b>{point.x}</b><br/>',
+        pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+    },
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            dataLabels: {
+                enabled: true,
+                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+            }
+        }
+    },
+    series: [{
+        name: 'Tested For HIV',
+        data: [36032,29289,37123,36491,25116]
+    }, {
+        name: 'HIV +ve',
+        data: [216,117,371,694,226]
+    }]
+});
 });
 
 	$(".dropdown-menu").find('.report').on("click",function(){
