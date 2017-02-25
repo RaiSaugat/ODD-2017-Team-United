@@ -50,4 +50,8 @@ $("document").ready(function(){
              data: [39397,22267, 20307, 11922]
          }]
      });
+
+     $(".dropdown-toggle").find(".art-gender").on("click", function(){
+          alert('asfasdf');
+     });
 });

@@ -19,10 +19,19 @@
           <h2 class="text-center">Treatment:</h2>
                <div class='section treatment'>
                          <i class=" heading fa fa-medkit fa-5x" aria-hidden="true"></i>
+                         <div class="dropdown carrot">
+        <button class="btn btn-primary dropdown-toggle " type="button" data-toggle="dropdown">
+       <span class="caret"></span></button>
+       <ul class="dropdown-menu">
+         <li class='treatment'><a href="#">Treatment Cascade</a></li>
+         <li class='art-gender'><a href="#">ART by Gender</a></li>
+       </ul>
+     </div>
                </div>
                <div class='data-table'>
                     <div id="chart-data">
                     </div>
+                    <div id="legend" class="donut-legend"></div>
                </div>
      </div>
 
@@ -33,6 +42,7 @@
           <script type="text/javascript" src="js/bootstrap.min.js"></script>
           <script type="text/javascript" src="js/treatment.js"> </script>
            <script src="js/highcharts.js"></script>
+           <script src="js/morris.js"></script>
           <script src="js/modules/exporting.js"></script>
           <script src="http://code.highcharts.com/maps/modules/map.js"></script>
           <script src="https://code.highcharts.com/mapdata/countries/np/np-all.js"></script>
