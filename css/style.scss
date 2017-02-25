@@ -81,6 +81,11 @@ h2{
        }
 }
 
+.treatment{
+        .heading{
+             margin-left:150px;
+        }
+}
 #chart-data{
       min-width: 350px;
       height: 450px;
@@ -98,4 +103,13 @@ h2{
 }
 .active-color{
      color:#d50000;
+}
+
+.main-section{
+     padding:150px 0 0 400px;
+     height:400px;
+     button{
+          padding:20px;
+          margin:20px;
+     }
 }
