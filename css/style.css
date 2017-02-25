@@ -88,9 +88,3 @@ h2 {
 		.main-section button {
 				padding: 20px;
 				margin: 20px; }
-
-.footer {
-		position: fixed;
-		down: 0;
-		border: 1px solid red;
-		width: 200px; }

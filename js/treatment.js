@@ -332,5 +332,40 @@ $("document").ready(function(){
 });
      });
 
+$(".dropdown-menu").find(".fast-track").on("click", function(){
+     Highcharts.chart('chart-data', {
 
+    title: {
+        text: 'Trend of New infection and  Death (2000-2020) '
+    },
+
+
+
+    yAxis: {
+        title: {
+            text: 'Numbers'
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            pointStart: 2000
+        }
+    },
+
+    series: [{
+        name: 'New Infection',
+        data: [9661,10328,10097,9168,7766,6227,4805,3718,2813,2078,1751,1437,1088,825,662,534,500,480,460,450,400]
+    }, {
+        name: 'Death',
+        data: [500,800,1200,1300,1500,1550,1600,1650,1700,1751,1900,2000,2000,1900,1800,1800,1500,1000,460,350,250]
+    }]
+
+});
+});
 });
