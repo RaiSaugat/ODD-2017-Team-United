@@ -4,7 +4,7 @@ $("document").ready(function(){
              type: 'column'
          },
          title: {
-             text: 'Treatment Cascade'
+             text: 'Treatment Cascade by 2016'
          },
          xAxis: {
              categories: ['Esimated Number of PLHIV', 'Number of Alive PLHIV', 'Linked To HIV care', 'PLHIV Received ART']
