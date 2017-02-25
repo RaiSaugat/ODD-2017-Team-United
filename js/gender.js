@@ -105,6 +105,7 @@ $(document).ready(function(){
                $(".gender").children().addClass("active-color");
                $(".age").children().removeClass("active-color");
                $(".year").children().removeClass("active-color");
+               $("#chart-data-second").css("display","none");
                $(".data-table").removeClass("chart-data-second");
                Highcharts.chart('chart-data', {
     chart: {
@@ -194,6 +195,7 @@ $(document).ready(function(){
                },800);
                $(".age").children().removeClass("active-color");
                $(".year").children().addClass("active-color");
+               $("#chart-data-second").css("display","none");
                $('.gender').children().removeClass("active-color");
           $("#chart-data").addClass("chart-data");
           Highcharts.chart('chart-data', {
@@ -234,6 +236,7 @@ $(document).ready(function(){
           $(".year").children().addClass("active-color");
           $('.gender').children().removeClass("active-color");
           $(".age").children().removeClass("active-color");
+          $("#chart-data-second").css("display","none");
           $("html, body").animate({
                scrollTop: $(".data-table").offset().top
           },800);
@@ -295,15 +298,15 @@ $(document).ready(function(){
           $(".age").children().addClass("active-color");
           $('.gender').children().removeClass("active-color");
           $('.year').children().removeClass("active-color");
+          $("#chart-data-second").css("display","block");
           $("html, body").animate({
                scrollTop: $(".data-table").offset().top
           },800);
-          Highcharts.chart('left', {
+          Highcharts.chart('chart-data', {
     chart: {
-         backgroundColor:'white'
-         ,
+         backgroundColor:'white',
       style: {
-         fontFamily: '\'Raleway\', sans-serif'
+         fontFamily: '\'Raleway\', sans-serif',
       },
       plotBorderColor: '#606063',
         type: 'column'
@@ -315,7 +318,7 @@ $(document).ready(function(){
         categories: ['2010', '2011', '2012', '2013', '2014','2015'],
         labels:{
           style: {
-               fontSize: '18px'
+               fontSize: '18px',
           },
         },
     },
@@ -373,7 +376,7 @@ $(document).ready(function(){
     }]
      });
 
-     Highcharts.chart('right', {
+     Highcharts.chart('chart-data-second', {
 
 chart: {
     backgroundColor:'white'
@@ -385,7 +388,7 @@ plotBorderColor: '#606063',
    type: 'column'
 },
 title: {
-   text: 'HIV Population: Child(0-14) '
+   text: 'HIV Population: Child(15+) '
 },
 xAxis: {
    categories: ['2010', '2011', '2012', '2013', '2014','2015'],
@@ -442,12 +445,76 @@ plotOptions: {
 },
 series: [{
    name: 'Male',
-    data: [1934,1952,1913,1851,1764,1653]
+    data: [16001,14989,14263,13754,13365,13116]
 }, {
    name: 'Female',
-   data: [1834,1852,1815,1757,1675,1570]
+   data: [34046,31495,29630,28280,27200,26410]
 }]
 });
+     });
 
+
+     $(".dropdown-menu").find('.all').on("click",function(){
+          $(".age").children().addClass("active-color");
+          $('.gender').children().removeClass("active-color");
+          $('.year').children().removeClass("active-color");
+          $("#chart-data-second").css("display","none  ");
+          $("html, body").animate({
+               scrollTop: $(".data-table").offset().top
+          },800);
+          Highcharts.chart('chart-data', {
+
+    chart: {
+        type: 'column'
+    },
+
+    title: {
+        text: 'Estimated HIV Infection, 2015'
+    },
+
+    xAxis: {
+        categories: ['0-14', '15-24', '25-49', '50+']
+    },
+
+    yAxis: {
+        allowDecimals: false,
+        min: 0,
+        title: {
+            text: 'Number of Infection',
+            style: {
+                fontSize: '18px'
+           }
+       }
+    },
+
+    tooltip: {
+        formatter: function () {
+            return '<b>' + this.x + '</b><br/>' +
+                this.series.name + ': ' + this.y + '<br/>' +
+                'Total: ' + this.point.stackTotal;
+        }
+    },
+
+    plotOptions: {
+        column: {
+            stacking: 'normal'
+        }
+    },
+
+    series: [{
+        name: 'Male',
+        data: [815,875,16967,5792],
+        stack: 'male'
+    }, {
+        name: 'Female',
+        data: [774,905,11328,1941],
+        stack: 'female'
+    },
+    {
+        name: 'Transgender',
+        data: [0,26,62,4],
+        stack: 'transgender'
+    }]
+});
      });
 });
