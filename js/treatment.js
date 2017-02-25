@@ -270,4 +270,67 @@ $("document").ready(function(){
 });
      });
 
+
+     $(".dropdown-menu").find(".finance").on("click",function(){
+          $("html, body").animate({
+               scrollTop: $(".data-table").offset().top
+          },800);
+          Highcharts.chart('chart-data', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'AIDS Spending by financing sources'
+    },
+    xAxis: {
+        categories: ['2006', '2007', '2009']
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'US$ in Millions'
+        },
+        stackLabels: {
+            enabled: true,
+            style: {
+                fontWeight: 'bold',
+                color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+            }
+        }
+    },
+    legend: {
+        align: 'right',
+        x: -30,
+        verticalAlign: 'top',
+        y: 25,
+        floating: true,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+        borderColor: '#CCC',
+        borderWidth: 1,
+        shadow: false
+    },
+    tooltip: {
+        headerFormat: '<b>{point.x}</b><br/>',
+        pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+    },
+    plotOptions: {
+        column: {
+            stacking: 'normal',
+            dataLabels: {
+                enabled: true,
+                color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+            }
+        }
+    },
+    series: [{
+        name: 'Domestic',
+        data: [0.21,0.62,0.26]
+    }, {
+        name: 'International',
+        data: [8.68,17.04,19.71]
+    }, ]
+});
+     });
+
+
 });

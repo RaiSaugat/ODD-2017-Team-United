@@ -89,20 +89,8 @@ h2 {
 				padding: 20px;
 				margin: 20px; }
 
-.donut-legend > span {
-		display: inline-block;
-		margin-right: 25px;
-		margin-bottom: 10px;
-		font-size: 13px; }
-
-.donut-legend > span:last-child {
-		margin-right: 0; }
-
-.donut-legend > span > i {
-		display: inline-block;
-		width: 15px;
-		height: 15px;
-		margin-right: 7px;
-		margin-top: -3px;
-		vertical-align: middle;
-		border-radius: 1px; }
+.footer {
+		position: fixed;
+		down: 0;
+		border: 1px solid red;
+		width: 200px; }
